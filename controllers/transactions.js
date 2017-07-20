@@ -1,3 +1,4 @@
+const Transaction = require('../models/Transaction');
 module.exports = {
   all: function(req, res) {
     Transaction.find(function (err, transactions) {
@@ -18,17 +19,23 @@ module.exports = {
     });
   },
   update: function(req, res) {
-    Transaction.update({ _id: req.id }, {
-      $set: req.body
-    }, function(err, result) {
-      if (err) {
-        res.send({err: err})
-      }
-      res.send(result)
-    });
+    Transaction.findOneAndUpdate({
+      _id: req.params.id
+    }, req.body, function(err, result) {
+      if (err) res.send(err)
+      else res.send(result)
+    })
+    // Transaction.update({ _id: req.id }, {
+    //   $set: req.body
+    // }, function(err, result) {
+    //   if (err) {
+    //     res.send({err: err})
+    //   }
+    //   res.send(result)
+    // });
   },
   delete: function(req, res) {
-    Transaction.remove({ _id: req.id }, function (err, result) {
+    Transaction.remove({ _id: req.params.id }, function (err, result) {
       if (err) {
         res.send({err: err})
       }
