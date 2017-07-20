@@ -1,3 +1,5 @@
+const Book =  require('../models/Book')
+
 module.exports = {
   all: function(req, res) {
     Book.find(function (err, books) {
@@ -8,12 +10,16 @@ module.exports = {
     })
   },
   create: function(req, res) {
-    var book = new Book(req.body);
+    var book = new Book (req.body)
     book.save(function (err, result) {
+         console.log('ini book result');
+         console.log('result' + result);
       if (err) {
+           console.log('ini error'+err);
         res.send({err: err})
-      }
-      res.send(result)
+    } else {
+        res.send(result)
+   }
     });
   },
   update: function(req, res) {
