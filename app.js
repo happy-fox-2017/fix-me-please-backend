@@ -13,4 +13,6 @@ var transactions = require('./routes/transactions');
 app.use('/books', books);
 app.use('/transactions', transactions);
 
-app.listen(3000)
+app.listen(3000);
+
+module.exports = app;
