@@ -14,7 +14,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use('/books', books);
-// app.use('/transactions', transactions);
+app.use('/transactions', transactions);
 
 app.listen(3000)
 
