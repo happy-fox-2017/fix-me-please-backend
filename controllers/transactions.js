@@ -1,3 +1,5 @@
+const transaction = require("../models/Transaction")
+
 module.exports = {
   all: function(req, res) {
     Transaction.find(function (err, transactions) {
