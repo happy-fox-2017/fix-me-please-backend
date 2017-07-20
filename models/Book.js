@@ -4,10 +4,11 @@ var bookSchema = mongoose.Schema({
   isbn: String,
   title: String,
   author: String,
-  category: Number,
-  stock: Number
+  category: String,
+  stock: Number,
+  price: Number
 });
 
-var Book = mongoose.model('Book', booksSchema);
+var Book = mongoose.model('Book', bookSchema);
 
 module.exports = Book
