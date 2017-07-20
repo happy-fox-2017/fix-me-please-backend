@@ -8,7 +8,7 @@ mongoose.connect('mongodb://localhost/api-crud-mongoose', (err) => {
 
 //path kurang benar
 var books = require('./routes/books');
-var transactions = require('routes/transactions');
+var transactions = require('./routes/transactions');
 
 app.use('/books', books);
 app.use('/transactions', transactions);
