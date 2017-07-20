@@ -3,8 +3,9 @@ module.exports = {
     Transaction.find(function (err, transactions) {
       if (err) {
         res.send({err: err})
-      }
+      } else{
       res.send(transactions)
+    }
     })
   },
   craete: function(req, res) {
@@ -32,8 +33,9 @@ module.exports = {
     Transaction.remove({ _id: req.id }, function (err, result) {
       if (err) {
         res.send({err: err})
+      } else{
+        res.send(result)
       }
-      res.send(result)
-    }
-  });
+    });
+  }
 }
