@@ -9,14 +9,12 @@ module.exports = {
       res.send(transactions)
     })
   },
-  craete: function(req, res) {
+  create: function(req, res) {
     var transaction = new Transaction(req.body);
     transaction.save(function (err, result) {
       if (err) {
         res.send({err: err})
-      } else {
-        res.send(result)
-      }
+      } 
       res.send(result)
     });
   },
