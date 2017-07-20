@@ -1,5 +1,6 @@
 const express = require('express');
-const app = express;
+const app = express();
+const bodyparser = require('body-parser');
 
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/api-crud-mongoose', (err) => {
@@ -7,9 +8,11 @@ mongoose.connect('mongodb://localhost/api-crud-mongoose', (err) => {
 });
 
 var books = require('./routes/books');
-var transactions = require('routes/transactions');
+var transactions = require('./routes/transactions');
 
 app.use('/books', books);
 app.use('/transactions', transactions);
+app.use(bodyparser.json())
+app.use(bodyparser.urlencoded({extended: false}));
 
 app.listen(3000)
