@@ -19,7 +19,8 @@ module.exports = {
     });
   },
   update: function(req, res) {
-    Book.update({ _id: req.id }, {
+    let id = req.params._id
+    Book.findOneAndUpdate(id, {
       $set: req.body
     }, function(err, result) {
       if (err) {
