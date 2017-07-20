@@ -10,6 +10,8 @@ module.exports = {
   },
   create: function(req, res) {
     var book = new Book(req.body);
+    console.log(req.body);
+    // console.log(book, 'ini buku');
     book.save(function (err, result) {
       if (err) {
         res.send({err: err})
