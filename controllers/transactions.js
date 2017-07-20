@@ -1,4 +1,4 @@
-const transaction = require("../models/Transaction")
+const Transaction = require("../models/Transaction")
 
 module.exports = {
   all: function(req, res) {
@@ -15,6 +15,7 @@ module.exports = {
     var transaction = new Transaction(req.body);
     transaction.save(function (err, result) {
       if (err) {
+           console.log(err);
         res.send({err: err})
       } else {
         res.send(result)
