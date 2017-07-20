@@ -3,7 +3,7 @@ const router = express.Router()
 var transactionController = require('../controllers/transactions');
 
 router.get('/', transactionController.all)
-// router.post('/', transactionController.create)
+router.post('/', transactionController.craete)
 // router.put('/:id', transactionController.update)
 // router.delete('/:id', transactionController.delete)
 
