@@ -8,17 +8,16 @@ module.exports = {
       res.send(transactions)
     })
   },
-  // create: function(req, res) {
-  //   var transaction = new Transaction(req.body);
-  //   transaction.save(function (err, result) {
-  //     if (err) {
-  //       res.send({err: err})
-  //     } else {
-  //       res.send(result)
-  //     }
-  //     res.send(result)
-  //   });
-  // },
+  create: function(req, res) {
+    var transaction = new Transaction(req.body);
+    transaction.save(function (err, result) {
+      if (err) {
+        res.send({err: err})
+      } else {
+        res.send(result)
+      }
+    });
+  },
   // update: function(req, res) {
   //   Transaction.update({ _id: req.id }, {
   //     $set: req.body
