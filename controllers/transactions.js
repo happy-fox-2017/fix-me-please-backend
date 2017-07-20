@@ -1,3 +1,5 @@
+var Transaction = require('../models/Transaction')
+
 module.exports = {
   all: function(req, res) {
     Transaction.find(function (err, transactions) {
@@ -12,8 +14,6 @@ module.exports = {
     transaction.save(function (err, result) {
       if (err) {
         res.send({err: err})
-      } else {
-        res.send(result)
       }
       res.send(result)
     });
