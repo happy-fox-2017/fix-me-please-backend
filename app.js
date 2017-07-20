@@ -10,6 +10,7 @@ var books = require('./routes/books');
 var transactions = require('./routes/transactions');
 
 app.use('/books', books);
+console.log('masuk3');
 app.use('/transactions', transactions);
 
 app.listen(3000)
