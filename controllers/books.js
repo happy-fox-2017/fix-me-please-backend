@@ -29,8 +29,9 @@ module.exports = {
       res.send(result)
     });
   },
-  delete: function(req, res) {
-    Book.remove({ _id: req.id }, function (err, result) {
+  deletes: function(req, res) {
+    let id = req.params._id
+    Book.deleteOne(id, function (err, result) {
       if (err) {
         res.send({err: err})
       }
