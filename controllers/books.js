@@ -1,4 +1,5 @@
 const Book = require('../models/Book')
+const ObjectId = require('mongodb').ObjectId
 
 module.exports = {
   all: function(req, res) {
@@ -29,7 +30,7 @@ module.exports = {
     });
   },
   delete: function(req, res) {
-    Book.remove({ _id: req.id }, function (err, result) {
+    Book.remove({ _id: ObjectId(req.params.id) }, function (err, result) {
       if (err) {
         res.send({err: err})
       }
