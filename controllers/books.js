@@ -1,6 +1,8 @@
+var Book = require('../models/Book.js')
+
 module.exports = {
   all: function(req, res) {
-    Book.find(function (err, books) {
+    Book.find({}, function (err, books) {
       if (err) {
         res.send({err: err})
       }
